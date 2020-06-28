@@ -15,7 +15,7 @@ void add(struct Node* front, int data) {//5
 
 void Remove(struct Node* target) {//8
 	struct Node* removeNode = target->next;//9
-	target->next = removeNode->next;//
+	target->next = removeNode->next;
 	free(/*Hongkong*/removeNode);
 }
 
@@ -40,15 +40,42 @@ struct Node* findNode(struct Node* node, int data) {
 	return NULL;
 }
 
+void Node_insert(struct Node* start, int index, int data) {
+	// index번째에 값을 삽입하시오
+	// 이전에 index에 있던 값은 뒤로 밀어내고, 내가 새치기해서 그 자리로 간다고 생각하셈
+	struct Node* tmp = start;
+	struct Node* new = malloc(sizeof(struct Node));
+
+	for (int i = 0; i < index && tmp->next != NULL; i++) {
+		tmp = tmp->next;
+	}
+	new->next = tmp->next;//6
+	tmp->next = new;//7
+	new->n = data;
+}
+
+void Node_del(struct Node* start, int index) {
+	struct Node* tmp = start;
+	struct Node* del;
+	
+	for (int i = 0; i < index && tmp->next != NULL; i++) {
+		tmp = tmp->next;
+	}
+	del = tmp->next;
+	tmp->next = del->next;
+	free(del);
+}//첫번째, 마지막, 중간은 ㅓㅇㅄ애는 경우
+
 void main() {
 	struct Node* head = malloc(sizeof(struct Node));//1
 	head->next = NULL;//4
 	for (int i = 0; i < 10; i++) {
 		push_back(head, i);
 	}
+	Node_insert(head, 3, 18);
 	struct Node* prt = head->next;
-	for (int i = 0; i < 10; i++) {
-		printf("%d", prt->n);
+	for (int i = 0; prt != NULL; i++) {
+		printf("%d ", prt->n);
 		prt = prt->next;
 	}
 }
@@ -67,4 +94,4 @@ void main() {
 7. 앞에 연결할 노드의 next멤버에 new주소 저장.
 8. 매개 변수로 삭제할 노드의 앞 순서에 있는 노드를 받음
 9. node자료형 포인터인 removeNode에 매개변수노드의 next멤버(삭제할 노드의 앞노드의 뒷노드, 본인)를 가리킴.
-*/
+*/;
