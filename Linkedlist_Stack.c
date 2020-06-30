@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 
 struct Stack {
 	int n;
@@ -28,10 +29,18 @@ void pop(struct Stack* head) {
 void main() {
 	struct Stack *head = malloc(sizeof(struct Stack));
 	head->next = NULL;
+	//Å×½ºÆ®
 	for (int i = 0; i < 10; i++) {
 		push(head, i);
 	}
+	for (int i = 0; i < 5; i++) {
+		pop(head);
+	}
+	printf("\n");
+	for (int i = 0; i < 5; i++) {
+		push(head, i);
+	}
 	for (int i = 0; i < 10; i++) {
-		pop(head, i);
+		pop(head);
 	}
 }
