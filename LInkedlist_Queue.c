@@ -1,31 +1,31 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-struct Queue{
+typedef struct _Queue{
 	int n;
 	struct Queue* next;
-};
+}Queue;
 
-void inque(struct Queue* head, int data) {
-	struct Queue* rear = head;
+void inque(Queue* head, int data) {
+	Queue* rear = head;
 	while (rear->next != NULL) {
 		rear = rear->next;
 	}
-	struct Queue* new = malloc(sizeof(struct Queue));
+	Queue* new = malloc(sizeof(Queue));
 	new->next = rear->next;
 	rear->next = new;
 	new->n = data;
 }
 
-void deque(struct Queue* head) {
-	struct Queue* front = head->next;//9
+void deque(Queue* head) {
+	Queue* front = head->next;//9
 	head->next = front->next;
 	printf("%d", front->n);
 	free(front);
 }
 
 void main() {
-	struct Queue* head = malloc(sizeof(struct Queue));
+	Queue* head = malloc(sizeof(Queue));
 	head->next = NULL;
 	for (int i = 0; i < 10; i++) {
 		inque(head, i);

@@ -1,34 +1,34 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-struct Node {
+typedef struct _Node {
 	int n;
 	struct Node* next;
-};
+}Node;
 
-void push_front(struct Node* front, int data) {//5
-	struct Node* new = malloc(sizeof(struct Node));//1
+void push_front(Node* front, int data) {//5
+	Node* new = malloc(sizeof(Node));//1
 	new->next = front->next;//6
 	front->next = new;//7
 	new->n = data;//3
 }
 
-void push_back(struct Node* start, int data) {
-	struct Node* rear = start;
+void push_back(Node* start, int data) {
+	Node* rear = start;
 	while (rear->next != NULL) {
 		rear = rear->next;
 	}
-	struct Node* new = malloc(sizeof(struct Node));
+	Node* new = malloc(sizeof(Node));
 	new->next = rear->next;
 	rear->next = new;
 	new->n = data;
 }
 
-void Node_insert(struct Node* start, int index, int data) {
+void Node_insert(Node* start, int index, int data) {
 	// index번째에 값을 삽입하시오
 	// 이전에 index에 있던 값은 뒤로 밀어내고, 내가 새치기해서 그 자리로 간다고 생각하셈
-	struct Node* tmp = start;
-	struct Node* new = malloc(sizeof(struct Node));
+	Node* tmp = start;
+	Node* new = malloc(sizeof(Node));
 
 	for (int i = 0; i < index && tmp->next != NULL; i++) {
 		tmp = tmp->next;
@@ -38,15 +38,15 @@ void Node_insert(struct Node* start, int index, int data) {
 	new->n = data;
 }
 
-void Remove(struct Node* target) {//8
-	struct Node* removeNode = target->next;//9
+void Remove(Node* target) {//8
+	Node* removeNode = target->next;//9
 	target->next = removeNode->next;
 	free(/*Hongkong*/removeNode);
 }
 
-void Node_del(struct Node* start, int index) {
-	struct Node* tmp = start;
-	struct Node* del;
+void Node_del(Node* start, int index) {
+	Node* tmp = start;
+	Node* del;
 
 	for (int i = 0; i < index && tmp->next != NULL; i++) {
 		tmp = tmp->next;
@@ -56,7 +56,7 @@ void Node_del(struct Node* start, int index) {
 	free(del);
 }//첫번째, 마지막, 중간은 ㅓㅇㅄ애는 경우
 
-struct Node* findNode(struct Node* node, int data) {
+ /*struct Node* findNode(struct Node* node, int data) {
 	if (node == NULL) { return NULL; }
 	struct Node* find = node->next;
 	while (find != NULL) {
@@ -64,16 +64,16 @@ struct Node* findNode(struct Node* node, int data) {
 		find = find->next;
 	}
 	return NULL;
-}
+}*/
 
 void main() {
-	struct Node* head = malloc(sizeof(struct Node));//1
+	Node* head = malloc(sizeof(Node));//1
 	head->next = NULL;//4
 	for (int i = 0; i < 10; i++) {
 		push_back(head, i);
 	}
 	Node_del(head, 3);
-	struct Node* prt = head->next;
+	Node* prt = head->next;
 	for (int i = 0; prt != NULL; i++) {
 		printf("%d ", prt->n);
 		prt = prt->next;

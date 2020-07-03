@@ -1,10 +1,10 @@
 #include<stdio.h>
 #include<stdlib.h>
 
-struct Stack {
+typedef struct _Stack {
 	int n;
 	struct Stack* next;
-};
+}Stack;
 /*
 typedef struct Stack {
 	int n;
@@ -12,22 +12,22 @@ typedef struct Stack {
 } stack;
 */
 
-void push(struct Stack* head, int data) {
-	struct Stack* new = malloc(sizeof(struct Stack));
+void push(Stack* head, int data) {
+	Stack* new = malloc(sizeof(Stack));
 	new->next = head->next;
 	head->next = new;
 	new->n = data;
 }
 
-void pop(struct Stack* head) {
-	struct Stack* top = head->next;
+void pop(Stack* head) {
+	Stack* top = head->next;
 	head->next = top->next;
 	printf("%d", top->n);
 	free(top);
 }
 
 void main() {
-	struct Stack *head = malloc(sizeof(struct Stack));
+	Stack *head = malloc(sizeof(Stack));
 	head->next = NULL;
 	//Å×½ºÆ®
 	for (int i = 0; i < 10; i++) {
