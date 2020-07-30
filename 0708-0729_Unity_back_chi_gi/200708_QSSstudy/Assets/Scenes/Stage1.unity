@@ -140,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &10836233
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,9 +293,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e38c66172a91c74d97443d983be677a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 974902879}
-  unground: {fileID: 6164748047315037585, guid: 054eaac3d9ba8d84bb4aaedf8c6127b4,
-    type: 3}
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -461,12 +458,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
---- !u!1 &974902879 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7861327980328354207, guid: 49b2b283662527a48a54238a54c9f0b9,
-    type: 3}
-  m_PrefabInstance: {fileID: 7861327980912536498}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1716269239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -565,7 +556,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1760690049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -863,6 +854,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_TagString
       value: Poot
+      objectReference: {fileID: 0}
+    - target: {fileID: 346897867136564220, guid: 72f6c4b88936a9b4ebbe813da858bdb1,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72f6c4b88936a9b4ebbe813da858bdb1, type: 3}

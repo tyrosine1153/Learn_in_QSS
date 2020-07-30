@@ -24,17 +24,17 @@ public class Player : MonoBehaviour
         
         if (Input.GetKeyUp(KeyCode.S))
         {
-            rigidbody2D.AddForce(new Vector2(0,-5));
+            rigidbody2D.AddForce(new Vector2(0,-10));
         }
         
         if (Input.GetKey(KeyCode.A))
         {
-            rigidbody2D.AddForce(new Vector2(-5,0));
+            rigidbody2D.AddForce(new Vector2(-10,0));
         }
         
         if (Input.GetKey(KeyCode.D))
         {
-            rigidbody2D.AddForce(new Vector2(5,0));
+            rigidbody2D.AddForce(new Vector2(10,0));
         }
     }
 

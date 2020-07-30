@@ -30,7 +30,7 @@ public class Poot1 : MonoBehaviour
         transform.position = new Vector3(Random.Range(-20,21),20,0);
         _rigidbody2D.velocity = Vector2.zero;
         
-        yield return new WaitForSeconds(Random.Range(0f,1f));
+        yield return new WaitForSeconds(Random.Range(0f,3f));
         
         _spriteRenderer.color = new Color(255,255,255,255);
     }

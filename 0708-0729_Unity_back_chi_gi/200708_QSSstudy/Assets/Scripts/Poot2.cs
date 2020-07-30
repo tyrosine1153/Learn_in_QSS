@@ -23,6 +23,7 @@ public class Poot2 : MonoBehaviour
             StartCoroutine("MovePosition", transform);
         }
     }
+    
     IEnumerator MovePosition(Transform transform)
     {
         yield return new WaitForSeconds(3f);
@@ -31,7 +32,7 @@ public class Poot2 : MonoBehaviour
         _rigidbody2D.velocity = new Vector2();
         transform.position = new Vector3(Random.Range(-20, 21), 20, 0);
         
-        yield return new WaitForSeconds(Random.Range(0f, 2f));
+        yield return new WaitForSeconds(Random.Range(0f, 3f));
         
         _spriteRenderer.color = new Color(255, 255, 255, 255);
     }

@@ -118,3 +118,59 @@ transform = GetComponent<Transform>();
 을 생략 할 수 있다
 ```
 
+**[Transform값 을 이용한 이동]**
+
+###### Transform.position 에 좌표를 직접 입력해주는 방법 / Translate를 이용하는 방법
+
+- Transform.position = new Vector3(0,0,0); // 오브젝트를 0,0,0 좌표로 이동
+
+- Transform.position += new Vector3(1,0,0); // 오브젝트 x좌표를 +1 이동
+  Transform.translate(new Vector3(1,0,0); // 오브젝트 x좌표를 +1 이동(위와 동일)
+  - Transform.translate는 position에 직접 값을 더해주는 것과 같은 방식으로 동작한다.
+
+**[물리엔진 Rigidbody 를 이용한 이동]**
+
+###### velocity(속도)를 직접 조절하는 방법 / 물체에 힘을 가하는 AddForce를 이용하는 방법
+
+- Rigidbody.velocity = new Vector3(1,0,0); // 오브젝트의 x방향 속도를 1로 설정한다.
+  이는 한번 실행하면 다시 속도를 바꾸기 전까지 위의
+  Transform.translate(new Vecotr3(1,0,0)); 를 계속(Update함수에서 실행)하는 것과 같이 동작한다.
+  (진짜 똑같으려면 translate에 Time.deltaTime 을 곱해 시간에 따라 일정하게 움직이도록 만들어줘야 함)
+
+- Rigidbody.AddForce(new Vector3(1,0,0)); // 캐릭터의 x좌표에 +1만큼의 연속적인 힘을 가한다.
+
+> ##### translate를 이용하면 x좌표를 +1만큼 이동시키고, AddForce를 이용하면 x좌표에 +1만큼의 힘을 가한다.
+
+
+
+##### 또 AddForce는 포커스 모드를 설정할 수 있다.
+
+**[포커스모드]**
+
+**Force(질량 적용)** 연속적인 힘을 가함
+
+**Impulse(질량 적용)** 순간적인 힘을 가함
+
+**Acceleration(질량 무시)** 연속적인 힘을 가함
+
+**VelocityChange(질량 무시)** 순간적인 힘을 가함
+
+ex) Rigidbody.AddForce(new Vector3.(1,0,0), ForceMode.Force);
+
+포커스모드를 VelocityChange로 설정하면 velocity에 직접 값을 더해주는 것과 같이 동작한다(질량을 무시하고 바로 값을 주므로).
+
+**벡터 줄이기**
+
+```
+Vector3.zero : Vector3(0, 0, 0)인 벡터
+Vector3.one : Vector3(1, 1, 1)인 벡터
+Vector3.back : Vector3(0, 0, -1)인 벡터
+Vector3.down : Vector3(0, -1, 0)인 벡터
+Vector3.forward : Vector3(0, 0, 1)인 벡터
+Vector3.left : Vector3(-1, 0, 0)인 벡터
+Vector3.right : Vector3(1, 0, 0)인 벡터
+Vector3.up : Vector3(0, 1, 0)인 벡터
+
+출처: https://ssabi.tistory.com/23 [싸비]
+```
+
