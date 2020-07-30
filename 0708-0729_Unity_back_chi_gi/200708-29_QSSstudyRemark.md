@@ -30,8 +30,8 @@ OnCollisionEnter2D : 2개의 충돌체의 isTrigger가 꺼져 있으면 호출=>
 OnTriggerEnter2D : 2개중 하나의 충돌체의 isTrigger가 켜져 있으면 호출 =>물리적 접촉이 아닌 통과될때
 
 ```c#
-void OnTriggerEnter2D(Collider2D coll)//함수의 매개변수 타입이 다르다
-void OnCollisionEnter2D(Collision2D coll)
+void OnTriggerEnter2D(Collider2D coll){}//함수의 매개변수 타입이 다르다
+void OnCollisionEnter2D(Collision2D coll){}
 ```
 
 collider의 줄임말로 위에 함수에서 매개변수로 쓰는거-> coll/col
@@ -73,12 +73,12 @@ private Transform transform
 transform = GetComponent<Transform>();
 ...
 transform.position = new Vector3(Random.Range(-20,21),20,0);
-로 줄이는게 더 활용성있다
+로 줄이는게 더 활용성있다 특히 자주 쓸수록
 ```
 
 ```c#
 class A{
-	public static bool flag { get; private set; }
+	public static bool flag { get; private set; }//이거 이름이 기억안나는데 대충 뭔기능인지 알겠지
 }
 class B{
     Poot1.flag = false;//이거 안됨. 볼수는 있는데 설정은 안됨
