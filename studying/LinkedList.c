@@ -25,8 +25,8 @@ void push_back(Node* start, int data) {
 }
 
 void Node_insert(Node* start, int index, int data) {
-	// index¹øÂ°¿¡ °ªÀ» »ðÀÔÇÏ½Ã¿À
-	// ÀÌÀü¿¡ index¿¡ ÀÖ´ø °ªÀº µÚ·Î ¹Ð¾î³»°í, ³»°¡ »õÄ¡±âÇØ¼­ ±× ÀÚ¸®·Î °£´Ù°í »ý°¢ÇÏ¼À
+	// indexë²ˆì§¸ì— ê°’ì„ ì‚½ìž…í•˜ì‹œì˜¤
+	// ì´ì „ì— indexì— ìžˆë˜ ê°’ì€ ë’¤ë¡œ ë°€ì–´ë‚´ê³ , ë‚´ê°€ ìƒˆì¹˜ê¸°í•´ì„œ ê·¸ ìžë¦¬ë¡œ ê°„ë‹¤ê³  ìƒê°í•˜ì…ˆ
 	Node* tmp = start;
 	Node* new = malloc(sizeof(Node));
 
@@ -54,7 +54,7 @@ void Node_del(Node* start, int index) {
 	del = tmp->next;
 	tmp->next = del->next;
 	free(del);
-}//Ã¹¹øÂ°, ¸¶Áö¸·, Áß°£Àº ¤Ã¤·¤´¾Ö´Â °æ¿ì
+}//ì²«ë²ˆì§¸, ë§ˆì§€ë§‰, ì¤‘ê°„ì€ ã…“ã…‡ã…„ì• ëŠ” ê²½ìš°
 
  /*struct Node* findNode(struct Node* node, int data) {
 	if (node == NULL) { return NULL; }
@@ -81,17 +81,17 @@ void main() {
 }
 
 /*
-1. ³ëµå¿¡ ¸Þ¸ð¸® ÇÒ´ç->»ý¼º.
+1. ë…¸ë“œì— ë©”ëª¨ë¦¬ í• ë‹¹->ìƒì„±.
   ex) struct Node *head = malloc(sizeof(struct Node));
-2. next¸â¹ö¿¡ ´ÙÀ½ ³ëµåÀÇ ¸Þ¸ð¸® ÁÖ¼Ò ÀúÀå.
-  ex)head->next = ¾îÂ¼±¸;
-3. n ¸â¹ö¿¡ µ¥ÀÌÅÍ ÀúÀå.
-  ex)¾îÂ¼±¸->n = 20;
-4. ¸¶Áö¸· ³ëµå¶ó¸é next¸â¹ö¿¡ NULLÀúÀå.
-  ex) ¾îÂ¼±¸->next = NULL;
-5. ¸Å°³ º¯¼ö·Î »õ ³ëµå ¾Õ¿¡ ¿¬°áÇÒ ³ëµå¿Í ³ÖÀ» °ªÀ» ¹ÞÀ½.
-6. »õ·Î¿î ³ëµå newÀÇ next¸â¹ö¿¡ ¾Õ¿¡ ¿¬°áÇÒ ³ëµåÀÇ ¿ø·¡ nextÁÖ¼Ò ÀúÀå.
-7. ¾Õ¿¡ ¿¬°áÇÒ ³ëµåÀÇ next¸â¹ö¿¡ newÁÖ¼Ò ÀúÀå.
-8. ¸Å°³ º¯¼ö·Î »èÁ¦ÇÒ ³ëµåÀÇ ¾Õ ¼ø¼­¿¡ ÀÖ´Â ³ëµå¸¦ ¹ÞÀ½
-9. nodeÀÚ·áÇü Æ÷ÀÎÅÍÀÎ removeNode¿¡ ¸Å°³º¯¼ö³ëµåÀÇ next¸â¹ö(»èÁ¦ÇÒ ³ëµåÀÇ ¾Õ³ëµåÀÇ µÞ³ëµå, º»ÀÎ)¸¦ °¡¸®Å´.
+2. nextë©¤ë²„ì— ë‹¤ìŒ ë…¸ë“œì˜ ë©”ëª¨ë¦¬ ì£¼ì†Œ ì €ìž¥.
+  ex)head->next = ì–´ì©Œêµ¬;
+3. n ë©¤ë²„ì— ë°ì´í„° ì €ìž¥.
+  ex)ì–´ì©Œêµ¬->n = 20;
+4. ë§ˆì§€ë§‰ ë…¸ë“œë¼ë©´ nextë©¤ë²„ì— NULLì €ìž¥.
+  ex) ì–´ì©Œêµ¬->next = NULL;
+5. ë§¤ê°œ ë³€ìˆ˜ë¡œ ìƒˆ ë…¸ë“œ ì•žì— ì—°ê²°í•  ë…¸ë“œì™€ ë„£ì„ ê°’ì„ ë°›ìŒ.
+6. ìƒˆë¡œìš´ ë…¸ë“œ newì˜ nextë©¤ë²„ì— ì•žì— ì—°ê²°í•  ë…¸ë“œì˜ ì›ëž˜ nextì£¼ì†Œ ì €ìž¥.
+7. ì•žì— ì—°ê²°í•  ë…¸ë“œì˜ nextë©¤ë²„ì— newì£¼ì†Œ ì €ìž¥.
+8. ë§¤ê°œ ë³€ìˆ˜ë¡œ ì‚­ì œí•  ë…¸ë“œì˜ ì•ž ìˆœì„œì— ìžˆëŠ” ë…¸ë“œë¥¼ ë°›ìŒ
+9. nodeìžë£Œí˜• í¬ì¸í„°ì¸ removeNodeì— ë§¤ê°œë³€ìˆ˜ë…¸ë“œì˜ nextë©¤ë²„(ì‚­ì œí•  ë…¸ë“œì˜ ì•žë…¸ë“œì˜ ë’·ë…¸ë“œ, ë³¸ì¸)ë¥¼ ê°€ë¦¬í‚´.
 */;
